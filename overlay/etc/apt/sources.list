@@ -1,0 +1,7 @@
+deb https://mirrors.ocf.berkeley.edu/ubuntu/ bionic main restricted universe multiverse
+deb-src https://mirrors.ocf.berkeley.edu/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors.ocf.berkeley.edu/ubuntu/ bionic-security main restricted universe multiverse
+deb-src https://mirrors.ocf.berkeley.edu/ubuntu/ bionic-security main restricted universe multiverse
+deb https://mirrors.ocf.berkeley.edu/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src https://mirrors.ocf.berkeley.edu/ubuntu/ bionic-updates main restricted universe multiverse
+
