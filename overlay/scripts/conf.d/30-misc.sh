@@ -2,6 +2,7 @@
 
 PKG=(
     htop
+    fish
     mousepad
     keepassxc
 )
