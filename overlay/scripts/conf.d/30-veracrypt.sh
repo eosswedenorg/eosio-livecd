@@ -1,4 +1,3 @@
 #!/bin/bash
 
-add-apt-repository ppa:unit193/encryption
-apt-get install -y veracrypt
+apt-get install -y -f /scripts/deb/veracrypt-1.24-Update3-Ubuntu-18.04-amd64.deb
