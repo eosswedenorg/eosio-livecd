@@ -8,7 +8,7 @@ sudo rm -fr ./rootfs
 # extract from cache if it exists.
 if [ -f ${CACHE_FILE} ]; then
     tar -xf ${CACHE_FILE}
-else:
+else :
 
     source config/rootfs-bootstrap.vars
 
