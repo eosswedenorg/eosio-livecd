@@ -1,10 +1,10 @@
 #!/bin/bash
 
 PKG=(
-    htop
-    fish
-    mousepad
-    keepassxc
+	htop=2.1.0-3
+	fish=2.7.1-3
+	mousepad=0.4.0-4ubuntu1
+	keepassxc=2.3.1+dfsg.1-1
 )
 
 apt-get install -y ${PKG[@]}

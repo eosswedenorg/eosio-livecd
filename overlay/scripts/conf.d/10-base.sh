@@ -1,29 +1,29 @@
 #!/bin/bash
 
 PKG=(
-    ubuntu-minimal
-    locales
-    linux-generic
+    ubuntu-minimal=1.417.4
+    locales=2.27-3ubuntu1
+    linux-generic=4.15.0.88.80
 
     # Livesystem stuffs.
-    casper
-    lupin-casper
-    discover
-    laptop-detect
-    os-prober
+    casper=1.394
+    lupin-casper=0.57build1
+    discover=2.1.2-8
+    laptop-detect=0.16
+    os-prober=1.74ubuntu1
 
     # Network
-    network-manager
-    resolvconf
-    net-tools
-    wireless-tools
+    network-manager=1.10.6-2ubuntu1.4
+    resolvconf=1.79ubuntu10.18.04.3
+    net-tools=1.60+git20161116.90da8a0-1ubuntu1
+    wireless-tools=30~pre9-12ubuntu1
 
     # Base programs
-    software-properties-common
-    nano
-    vim
-    curl
-    less
+    software-properties-common=0.96.24.32.12
+    nano=2.9.3-2
+    vim=2:8.0.1453-1ubuntu1.1
+    curl=7.58.0-2ubuntu3.8
+    less=487-0.1
 )
 
 apt-get -y install ${PKG[@]}

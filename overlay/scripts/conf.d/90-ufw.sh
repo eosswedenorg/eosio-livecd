@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install -y ufw
+apt-get install -y ufw=0.36-0ubuntu0.18.04.1
 
 ufw enable
 
