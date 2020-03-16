@@ -2,3 +2,4 @@ rootfs
 image
 output
 *.tar.*
+*.tar
