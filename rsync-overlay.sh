@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Sync files in overlay to rootfs.
-sudo rsync -v -l -cr overlay/ rootfs
+sudo rsync -v -l -p -cr overlay/ rootfs
