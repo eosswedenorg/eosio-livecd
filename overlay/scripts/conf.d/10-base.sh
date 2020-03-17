@@ -6,7 +6,7 @@ PKG=(
     linux-generic=4.15.0.88.80
 
     # Livesystem stuffs.
-    casper=1.394
+    casper=1.394.3
     lupin-casper=0.57build1
     discover=2.1.2-8
     laptop-detect=0.16
