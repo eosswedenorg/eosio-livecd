@@ -11,4 +11,4 @@ EOF
 apt-get update
 apt-get install -y \
 	cleos-v2=1.8.4-rc1 \
-	eosio-keygen=1.0.3-1
+	eosio-keygen=1.0.6-1
