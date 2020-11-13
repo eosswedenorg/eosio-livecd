@@ -4,7 +4,7 @@
 ROOTFS=$(pwd)/rootfs
 
 function exec_chroot {
-    echo -e "[\e[34mCHROOT\e[0m]" $@
+	[[ "$@" ]] && echo -e "[\e[34mCHROOT\e[0m]" $@
     sudo chroot ${ROOTFS} env HOME=/root LC_ALL=C /bin/bash $@
 }
 
