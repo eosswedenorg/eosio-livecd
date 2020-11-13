@@ -7,4 +7,4 @@ PKG=(
 	keepassxc=2.3.1+dfsg.1-1
 )
 
-apt-get install -y ${PKG[@]}
+pkg-install ${PKG[@]}

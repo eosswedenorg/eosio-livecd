@@ -9,6 +9,6 @@ deb [arch=amd64] https://apt.eossweden.org/eosio bionic stable
 EOF
 
 apt-get update
-apt-get install -y \
+pkg-install \
 	cleos-v2=1.8.4-rc1 \
 	eosio-keygen=1.0.6-1

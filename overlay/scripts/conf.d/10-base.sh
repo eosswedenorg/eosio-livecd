@@ -26,4 +26,4 @@ PKG=(
     less=487-0.1
 )
 
-apt-get -y install ${PKG[@]}
+pkg-install ${PKG[@]}
