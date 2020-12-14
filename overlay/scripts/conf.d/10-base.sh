@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PKG=(
-	linux-generic=4.15.0.123.110
+    linux-generic=4.15.0.128.115
     ubuntu-minimal=1.417.5
     locales=2.27-3ubuntu1
 
@@ -22,7 +22,7 @@ PKG=(
     software-properties-common=0.96.24.32.14
     nano=2.9.3-2
     vim=2:8.0.1453-1ubuntu1.4
-    curl=7.58.0-2ubuntu3.10
+    curl=7.58.0-2ubuntu3.12
     less=487-0.1
 )
 

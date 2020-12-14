@@ -3,7 +3,7 @@
 PKG=(
     # Window manager
     xubuntu-core
-    firefox=82.0.3+build1-0ubuntu0.18.04.1
+    firefox=83.0+build2-0ubuntu0.18.04.2
 )
 
 pkg-install ${PKG[@]}
