@@ -36,19 +36,21 @@ This repo contains scripts to proper build a EOSIO xubuntu livecd.
 
    You can start from a custom state (previous livecd) by extracting the `casper/filesystem.squashfs` from the `iso`-file.
 
-2. Run `chroot.sh` that will construct a proper chroot environment inside `rootfs/`
+3. Run `rsync-overlay.sh` to copy over the eosio-live setup scripts and config files.
 
-3. *(Optional)* run `./script/configure.sh` in chrooted    environment to install and configure the livecd. (only needed if you started from a base rootfs).
+4. Run `chroot.sh` that will construct a proper chroot environment inside `rootfs/`
+
+5. *(Optional)* run `./script/configure.sh` in chrooted environment to install and configure the livecd. (only needed if you started from a base rootfs).
 
     **DO NOT** install grub on any disk when asked.
 
 	Answer `NO` to any question about overriding files with package provided file.
 
-4. Make any other changes you want inside chroot.
+6. Make any other changes you want inside chroot.
 
    Run `exit` to exit the chroot environment when you are done.
 
-5. Run `create-image.sh`
+7. Run `create-image.sh`
 
    Make sure to edit `config/image.vars` if you want another name or update the version number.
 
