@@ -7,11 +7,11 @@ rm -fr image/*
 mkdir -p image/{casper,isolinux,install}
 
 # Copy kernel images
-sudo cp rootfs/boot/vmlinuz-* image/casper/vmlinuz
-sudo cp rootfs/boot/initrd.img-* image/casper/initrd
+sudo -S cp rootfs/boot/vmlinuz-* image/casper/vmlinuz
+sudo -S cp rootfs/boot/initrd.img-* image/casper/initrd
 
 # Copy memtest BIOS
-sudo cp rootfs/boot/memtest86+.bin image/install/memtest86+
+sudo -S cp rootfs/boot/memtest86+.bin image/install/memtest86+
 
 # Copy memtest UEFI
 UEFI_MEMTEST_CACHE=.cache/memtest86-uefi.zip
@@ -30,21 +30,21 @@ touch image/ubuntu
 cp config/grub.cfg image/isolinux/
 
 # Manifest
-sudo chroot rootfs dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee image/casper/filesystem.manifest > /dev/null
-sudo cp -v image/casper/filesystem.manifest image/casper/filesystem.manifest-desktop
-sudo sed -i '/ubiquity/d' image/casper/filesystem.manifest-desktop
-sudo sed -i '/casper/d' image/casper/filesystem.manifest-desktop
-sudo sed -i '/discover/d' image/casper/filesystem.manifest-desktop
-sudo sed -i '/laptop-detect/d' image/casper/filesystem.manifest-desktop
-sudo sed -i '/os-prober/d' image/casper/filesystem.manifest-desktop
+sudo -S chroot rootfs dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee image/casper/filesystem.manifest > /dev/null
+sudo -S cp -v image/casper/filesystem.manifest image/casper/filesystem.manifest-desktop
+sudo -S sed -i '/ubiquity/d' image/casper/filesystem.manifest-desktop
+sudo -S sed -i '/casper/d' image/casper/filesystem.manifest-desktop
+sudo -S sed -i '/discover/d' image/casper/filesystem.manifest-desktop
+sudo -S sed -i '/laptop-detect/d' image/casper/filesystem.manifest-desktop
+sudo -S sed -i '/os-prober/d' image/casper/filesystem.manifest-desktop
 
 # Compress filesystem.
-sudo mv rootfs/scripts /tmp/squashfs
-sudo mksquashfs rootfs/ image/casper/filesystem.squashfs
-sudo mv /tmp/squashfs rootfs/scripts
+sudo -S mv rootfs/scripts /tmp/squashfs
+sudo -S mksquashfs rootfs/ image/casper/filesystem.squashfs
+sudo -S mv /tmp/squashfs rootfs/scripts
 
 # Write filesystem size
-printf $(sudo du -sx --block-size=1 rootfs | cut -f1) > image/casper/filesystem.size
+printf $(sudo -S du -sx --block-size=1 rootfs | cut -f1) > image/casper/filesystem.size
 
 cp config/README.diskdefines image/
 
@@ -63,7 +63,7 @@ grub-mkstandalone \
 (
    cd isolinux && \
    dd if=/dev/zero of=efiboot.img bs=1M count=10 && \
-   sudo mkfs.vfat efiboot.img && \
+   sudo -S mkfs.vfat efiboot.img && \
    mmd -i efiboot.img efi efi/boot && \
    mcopy -i efiboot.img ./bootx64.efi ::efi/boot/
 )
@@ -81,12 +81,12 @@ grub-mkstandalone \
 cat /usr/lib/grub/i386-pc/cdboot.img isolinux/core.img > isolinux/bios.img
 
 # Generate md5sum.txt
-sudo /bin/bash -c "(find . -type f -print0 | xargs -0 md5sum | grep -v "\./md5sum.txt" > md5sum.txt)"
+sudo -S /bin/bash -c "(find . -type f -print0 | xargs -0 md5sum | grep -v "\./md5sum.txt" > md5sum.txt)"
 
 mkdir -p ../output
 
 # Now create the iso.
-sudo xorriso \
+sudo -S xorriso \
    -as mkisofs \
    -iso-level 3 \
    -full-iso9660-filenames \

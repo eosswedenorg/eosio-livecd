@@ -4,8 +4,8 @@
 ROOTFS=$(pwd)/rootfs
 
 function exec_chroot {
-	[[ "$@" ]] && echo -e "[\e[34mCHROOT\e[0m]" $@
-    sudo chroot ${ROOTFS} env HOME=/root LC_ALL=C /bin/bash $@
+    [[ "$@" ]] && echo -e "[\e[34mCHROOT\e[0m]" $@
+    sudo -S chroot ${ROOTFS} env HOME=/root LC_ALL=C /bin/bash $@
 }
 
 # Check rootfs dir.
@@ -15,8 +15,8 @@ if [ ! -d "${ROOTFS}" ]; then
 fi
 
 # Mount dev and run
-sudo mount --bind /dev ${ROOTFS}/dev
-sudo mount --bind /run ${ROOTFS}/run
+sudo -S mount --bind /dev ${ROOTFS}/dev
+sudo -S mount --bind /run ${ROOTFS}/run
 
 # Init chroot.
 exec_chroot /scripts/init.sh
@@ -28,5 +28,5 @@ exec_chroot
 exec_chroot /scripts/exit.sh
 
 # Unmount.
-sudo umount ${ROOTFS}/dev
-sudo umount ${ROOTFS}/run
+sudo -S umount ${ROOTFS}/dev
+sudo -S umount ${ROOTFS}/run

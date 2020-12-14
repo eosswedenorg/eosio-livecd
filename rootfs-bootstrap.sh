@@ -13,7 +13,7 @@ else :
     source config/rootfs-bootstrap.vars
 
     # Bootstrap root filesystem
-    sudo debootstrap \
+    sudo -S debootstrap \
         --arch=${ROOTFS_ARCH} \
         --variant=${ROOTFS_VARIANT} \
         ${ROOTFS_VERSION} \
@@ -21,5 +21,5 @@ else :
         http://us.archive.ubuntu.com/ubuntu/
 
     # Cache in tar file.
-    sudo tar -z -cf ${CACHE_FILE} rootfs/
+    sudo -S tar -z -cf ${CACHE_FILE} rootfs/
 fi
