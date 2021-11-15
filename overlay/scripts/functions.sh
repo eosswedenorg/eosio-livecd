@@ -7,6 +7,11 @@ function pkg-install {
 	fi
 }
 
+function config-install {
+    install -d "$(dirname $1)"
+    install -t "$(dirname $1)" -m 644 "/scripts/$1"
+}
+
 function configure {
     echo -e " [\e[1;34m*\e[0m] Running $(basename $@)"
     source $@
