@@ -23,7 +23,7 @@ fi
 unzip -p ${UEFI_MEMTEST_CACHE} memtest86-usb.img > image/install/memtest86
 
 #
-# Grup config
+# Grub config
 #
 
 touch image/ubuntu
