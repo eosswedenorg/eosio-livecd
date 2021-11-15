@@ -27,3 +27,5 @@ PKG=(
 )
 
 pkg-install ${PKG[@]}
+
+config-install /etc/casper.conf
