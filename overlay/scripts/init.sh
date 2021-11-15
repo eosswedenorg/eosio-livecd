@@ -10,7 +10,10 @@ dpkg -i /scripts/deb/openssl_1.1.1-1ubuntu2.1~18.04.5_amd64.deb
 dpkg -i /scripts/deb/ca-certificates_20210119~18.04.2_all.deb
 
 apt-get update
-apt-get install -y systemd-sysv=237-3ubuntu10.52
+apt-get install -y \
+    apt-utils=1.6.14 \
+    dialog=1.3-20171209-1 \
+    systemd-sysv=237-3ubuntu10.52
 
 dbus-uuidgen > /etc/machine-id
 ln -fs /etc/machine-id /var/lib/dbus/machine-id
