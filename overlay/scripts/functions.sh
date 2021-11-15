@@ -6,3 +6,8 @@ function pkg-install {
 		exit 1
 	fi
 }
+
+function configure {
+    echo -e " [\e[1;34m*\e[0m] Running $(basename $@)"
+    source $@
+}
