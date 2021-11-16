@@ -6,6 +6,7 @@ with some nice software like:
 * cleos-v2
 * eosio-keygen
 * keepassxc
+* achor wallet
 
 along with other standard tools.
 
