@@ -3,12 +3,14 @@
 
 CACHE_FILE=.cache/rootfs.base.tar.gz
 
+[ $# -lt 1 ] || ( [ "$1" != "--update" ] && [ "$1" != "-u" ] ); UPDATE=$?
+
 source config.sh
 
 sudo rm -fr ./rootfs
 
-# extract from cache if it exists.
-if [ -f ${CACHE_FILE} ]; then
+# extract from cache if it exists and update is not requested
+if [ -f ${CACHE_FILE} ] && [ $UPDATE -eq 0 ]; then
     sudo tar -xf ${CACHE_FILE}
 else :
 
