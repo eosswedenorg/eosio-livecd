@@ -18,7 +18,7 @@ else :
         --variant=minbase \
         ${UBUNTU_CODENAME} \
         ./rootfs \
-        http://us.archive.ubuntu.com/ubuntu/
+        ${UBUNTU_MIRROR}/ubuntu/
 
     # Cache in tar file.
     sudo -S tar -z -cf ${CACHE_FILE} rootfs/
