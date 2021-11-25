@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source config/image.vars
+source config.sh
 
 # Clear and create directories.
 rm -fr image/*
@@ -27,7 +27,24 @@ unzip -p ${UEFI_MEMTEST_CACHE} memtest86-usb.img > image/install/memtest86
 #
 
 touch image/ubuntu
-cp config/grub.cfg image/isolinux/
+cat <<EOF > image/isolinux/grub.cfg
+search --set=root --file /ubuntu
+insmod all_video
+set default="0"
+set timeout=30
+menuentry "Boot ${GRUB_BOOT_LABEL}" {
+   linux /casper/vmlinuz boot=casper quiet splash ---
+   initrd /casper/initrd
+}
+menuentry "Boot ${GRUB_BOOT_LABEL} (safemode)" {
+   linux /casper/vmlinuz boot=casper nomodeset quiet splash ---
+   initrd /casper/initrd
+}
+menuentry "Check disc for defects" {
+   linux /casper/vmlinuz boot=casper integrity-check quiet splash ---
+   initrd /casper/initrd
+}
+EOF
 
 # Manifest
 sudo -S chroot rootfs dpkg-query -W --showformat='${Package} ${Version}\n' | sudo tee image/casper/filesystem.manifest > /dev/null
@@ -46,8 +63,18 @@ sudo -S mv /tmp/squashfs rootfs/scripts
 # Write filesystem size
 printf $(sudo -S du -sx --block-size=1 rootfs | cut -f1) > image/casper/filesystem.size
 
-cp config/README.diskdefines image/
-
+# Write diskdefines
+cat <<EOF > image/README.diskdefines
+#define DISKNAME  ${GRUB_BOOT_LABEL}
+#define TYPE  binary
+#define TYPEbinary  1
+#define ARCH  amd64
+#define ARCHamd64  1
+#define DISKNUM  1
+#define DISKNUM1  1
+#define TOTALNUM  0
+#define TOTALNUM0  1
+EOF
 
 pushd image > /dev/null
 
@@ -90,7 +117,7 @@ sudo -S xorriso \
    -as mkisofs \
    -iso-level 3 \
    -full-iso9660-filenames \
-   -volid "${IMAGE_NAME}" \
+   -volid "${TARGET_NAME}" \
    -eltorito-boot boot/grub/bios.img \
    -no-emul-boot \
    -boot-load-size 4 \
@@ -102,7 +129,7 @@ sudo -S xorriso \
    -e EFI/efiboot.img \
    -no-emul-boot \
    -append_partition 2 0xef isolinux/efiboot.img \
-   -output "../output/${IMAGE_FILENAME}" \
+   -output "../output/${TARGET_FULLNAME}.iso" \
    -graft-points \
       "." \
       /boot/grub/bios.img=isolinux/bios.img \
@@ -111,5 +138,5 @@ sudo -S xorriso \
 popd > /dev/null
 
 pushd output > /dev/null
-md5sum ${IMAGE_FILENAME} > $(echo ${IMAGE_FILENAME} | sed 's/iso$/md5/')
+md5sum ${TARGET_FULLNAME}.iso > ${TARGET_FULLNAME}.md5
 popd > /dev/null

@@ -10,13 +10,13 @@ if [ -f ${CACHE_FILE} ]; then
     sudo tar -xf ${CACHE_FILE}
 else :
 
-    source config/rootfs-bootstrap.vars
+    source config.sh
 
     # Bootstrap root filesystem
     sudo -S debootstrap \
-        --arch=${ROOTFS_ARCH} \
-        --variant=${ROOTFS_VARIANT} \
-        ${ROOTFS_VERSION} \
+        --arch=amd64 \
+        --variant=minbase \
+        ${UBUNTU_CODENAME} \
         ./rootfs \
         http://us.archive.ubuntu.com/ubuntu/
 
