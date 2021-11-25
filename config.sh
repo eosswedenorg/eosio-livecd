@@ -6,7 +6,7 @@ UBUNTU_CODENAME=bionic
 
 # Ubuntu Archive mirror
 # Checkout https://launchpad.net/ubuntu/+archivemirrors if you want a faster one.
-UBUNTU_MIRROR=https://mirrors.ocf.berkeley.edu
+UBUNTU_MIRROR=http://se.archive.ubuntu.com
 
 # Name used for iso volume id, hostname in the live environment.
 TARGET_NAME=eosio-live
