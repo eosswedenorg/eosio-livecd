@@ -4,6 +4,10 @@
 UBUNTU_VERSION=18.04
 UBUNTU_CODENAME=bionic
 
+# Ubuntu Archive mirror
+# Checkout https://launchpad.net/ubuntu/+archivemirrors if you want a faster one.
+UBUNTU_MIRROR=https://mirrors.ocf.berkeley.edu
+
 # Name used for iso volume id, hostname in the live environment.
 TARGET_NAME=eosio-live
 
