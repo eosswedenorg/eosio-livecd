@@ -57,7 +57,14 @@ sudo -S sed -i '/os-prober/d' image/casper/filesystem.manifest-desktop
 
 # Compress filesystem.
 sudo -S mv rootfs/scripts /tmp/squashfs
-sudo -S mksquashfs rootfs/ image/casper/filesystem.squashfs
+sudo -S mksquashfs rootfs/ image/casper/filesystem.squashfs \
+    -wildcards \
+    -e "var/cache/apt/archives/*" \
+    -e "root/*" \
+    -e "root/.*" \
+    -e "tmp/*" \
+    -e "tmp/.*" \
+    -e "swapfile"
 sudo -S mv /tmp/squashfs rootfs/scripts
 
 # Write filesystem size
