@@ -19,7 +19,7 @@ PKG=(
     wireless-tools=30~pre9-12ubuntu1
 
     # Base programs
-    software-properties-common=0.96.24.32.14
+    software-properties-common=0.96.24.32.18
     nano=2.9.3-2
     vim=2:8.0.1453-1ubuntu1.7
     curl=7.58.0-2ubuntu3.16
