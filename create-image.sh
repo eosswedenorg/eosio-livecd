@@ -136,6 +136,8 @@ sudo -S xorriso \
    -no-emul-boot \
    -append_partition 2 0xef isolinux/efiboot.img \
    -output "../output/${TARGET_FULLNAME}.iso" \
+   -m "isolinux/efiboot.img" \
+   -m "isolinux/bios.img" \
    -graft-points \
       "." \
       /boot/grub/bios.img=isolinux/bios.img \
