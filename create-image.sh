@@ -84,7 +84,7 @@ EOF
 
 pushd image > /dev/null
 
-# install grub (BIOS)
+# install grub (UEFI)
 grub-mkstandalone \
    --format=x86_64-efi \
    --output=isolinux/bootx64.efi \
@@ -92,7 +92,7 @@ grub-mkstandalone \
    --fonts="" \
    "boot/grub/grub.cfg=isolinux/grub.cfg"
 
-# install grub (UEFI)
+# install grub (BIOS)
 (
    cd isolinux && \
    dd if=/dev/zero of=efiboot.img bs=1M count=10 && \
