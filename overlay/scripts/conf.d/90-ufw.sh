@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pkg-install ufw=0.36-0ubuntu0.18.04.2
+pkg-install ufw=0.36-6ubuntu1
 
 ufw enable
 

@@ -11,7 +11,9 @@ sudo -S cp rootfs/boot/vmlinuz-* image/casper/vmlinuz
 sudo -S cp rootfs/boot/initrd.img-* image/casper/initrd
 
 # Copy memtest BIOS
-sudo -S cp rootfs/boot/memtest86+.bin image/install/memtest86+
+if [ -f rootfs/boot/memtest86+.bin ]; then
+    sudo -S cp rootfs/boot/memtest86+.bin image/install/memtest86+
+fi
 
 # Copy memtest UEFI
 UEFI_MEMTEST_CACHE=.cache/memtest86-uefi.zip

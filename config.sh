@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # The ubuntu version to use
-UBUNTU_VERSION=18.04
-UBUNTU_CODENAME=bionic
+UBUNTU_VERSION=20.04
+UBUNTU_CODENAME=focal
 
 # Ubuntu Archive mirror
 # Checkout https://launchpad.net/ubuntu/+archivemirrors if you want a faster one.
