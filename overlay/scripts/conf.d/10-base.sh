@@ -2,6 +2,7 @@
 
 PKG=(
     linux-generic=4.15.0.162.151
+    memtest86+=5.01-3ubuntu2
     ubuntu-minimal=1.417
     locales=2.27-3ubuntu1.2
 
