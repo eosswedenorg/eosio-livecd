@@ -2,6 +2,15 @@
 
 source config.sh
 
+MKGRUB=$(which grub-mkstandalone 2> /dev/null)
+if [ $? -ne 0 ]; then
+    MKGRUB=$(which grub2-mkstandalone 2> /dev/null)
+    if [ $? -ne 0 ]; then
+        echo "Found neither grub-mkstandalone or grub2-mkstandalone. cant continue"
+        exit 1
+    fi
+fi
+
 # Clear and create directories.
 rm -fr image/*
 mkdir -p image/{casper,isolinux,install}
@@ -87,7 +96,7 @@ EOF
 pushd image > /dev/null
 
 # install grub (UEFI)
-grub-mkstandalone \
+$MKGRUB \
    --format=x86_64-efi \
    --output=isolinux/bootx64.efi \
    --locales="" \
@@ -104,7 +113,7 @@ grub-mkstandalone \
 )
 
 # Create grub image
-grub-mkstandalone \
+$MKGRUB \
    --format=i386-pc \
    --output=isolinux/core.img \
    --install-modules="linux16 linux normal iso9660 biosdisk memdisk search tar ls" \
