@@ -1,11 +1,11 @@
 #!/bin/bash
 # This script creates the base root filesystem.
 
-CACHE_FILE=.cache/rootfs.base.tar.gz
-
 [ $# -lt 1 ] || ( [ "$1" != "--update" ] && [ "$1" != "-u" ] ); UPDATE=$?
 
 source config.sh
+
+CACHE_FILE=.cache/rootfs-${UBUNTU_VERSION}.base.tar.gz
 
 sudo rm -fr ./rootfs
 
