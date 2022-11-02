@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # The ubuntu version to use
-UBUNTU_VERSION=20.04
-UBUNTU_CODENAME=focal
+UBUNTU_VERSION=22.04
+UBUNTU_CODENAME=jammy
 
 # Ubuntu Archive mirror
 # Checkout https://launchpad.net/ubuntu/+archivemirrors if you want a faster one.
