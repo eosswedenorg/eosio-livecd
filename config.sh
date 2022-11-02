@@ -12,7 +12,7 @@ UBUNTU_MIRROR=http://se.archive.ubuntu.com
 TARGET_NAME=eosio-live
 
 # LiveCD version
-TARGET_VERSION=01
+TARGET_VERSION=02
 
 # Fullname used for output files.
 TARGET_FULLNAME="${TARGET_NAME}-${UBUNTU_VERSION}-${TARGET_VERSION}"
