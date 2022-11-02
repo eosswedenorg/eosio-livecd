@@ -2,7 +2,7 @@
 
 pkg-install ufw=0.36-6ubuntu1
 
-ufw enable
+yes | ufw enable
 
 # deny outgoing trafic.
 ufw default deny outgoing
