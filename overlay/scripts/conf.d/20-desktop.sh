@@ -9,7 +9,7 @@ pkg-install --no-install-recommends \
     xfce4-power-manager-plugins=1.6.6-1 \
     xfce4-terminal=0.8.9.1-1
 
-pkg-install firefox=94.0+build3-0ubuntu0.20.04.1
+pkg-install firefox=106.0.2+build1-0ubuntu0.20.04.1
 
 # Bit of a hack, could not get xfce to change background.
 # So instead, lets just move the default and symlink to it.
