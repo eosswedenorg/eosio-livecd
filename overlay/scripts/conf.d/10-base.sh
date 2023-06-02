@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PKG=(
-    linux-generic=5.4.0.131.131
+    linux-generic=5.4.0.150.148
     memtest86+=5.01-3.1ubuntu2.1
     ubuntu-minimal=1.450.2
     locales=2.31-0ubuntu9.9
@@ -20,10 +20,10 @@ PKG=(
     wireless-tools=30~pre9-13ubuntu1
 
     # Base programs
-    software-properties-common=0.99.9.8
+    software-properties-common=0.99.9.11
     nano=4.8-1ubuntu1
-    vim=2:8.1.2269-1ubuntu5.9
-    curl=7.68.0-1ubuntu2.14
+    vim=2:8.1.2269-1ubuntu5.14
+    curl=7.68.0-1ubuntu2.18
     less=551-1ubuntu0.1
 )
 
