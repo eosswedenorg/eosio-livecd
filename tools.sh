@@ -9,4 +9,5 @@ sudo apt-get install -y \
     grub-pc-bin \
     grub-efi-amd64-bin \
     mtools \
+    rsync \
     unzip
