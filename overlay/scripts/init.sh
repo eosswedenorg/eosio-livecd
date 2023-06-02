@@ -8,7 +8,7 @@ apt-get update
 apt-get install -y \
     apt-utils=2.0.9 \
     dialog=1.3-20190808-1 \
-    systemd-sysv=245.4-4ubuntu3.18
+    systemd-sysv=245.4-4ubuntu3.21
 
 dbus-uuidgen > /etc/machine-id
 ln -fs /etc/machine-id /var/lib/dbus/machine-id
