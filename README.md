@@ -44,7 +44,7 @@ This repo contains scripts to proper build a EOSIO xubuntu livecd.
 
     **DO NOT** install grub on any disk when asked.
 
-	Answer `NO` to any question about overriding files with package provided file.
+    Answer `NO` to any question about overriding files with package provided file.
 
 6. Make any other changes you want inside chroot.
 
