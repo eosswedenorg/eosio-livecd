@@ -4,7 +4,7 @@ This xubuntu desktop version comes preloaded
 with some nice software like:
 
 * cleos-v2
-* eosio-keygen
+* antelope-keygen
 * keepassxc
 * achor wallet
 
