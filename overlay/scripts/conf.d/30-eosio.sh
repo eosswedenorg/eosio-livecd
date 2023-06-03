@@ -13,5 +13,5 @@ apt-get update
 pkg-install \
     /scripts/deb/libicu60_60.2-3ubuntu3.2_amd64.deb \
     cleos-v2=1.8.4-rc1 \
-	eosio-keygen=1.0.7-1 \
-    eosio-keygen-gui=1.0.7-1
+	antelope-keygen=1.1.0-1 \
+    antelope-keygen-gui=1.1.0-1
